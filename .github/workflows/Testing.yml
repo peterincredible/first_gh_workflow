@@ -7,17 +7,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - runs: echo "Hello, World!"
-      - runs: echo "This is a GitHub Actions demo workflow."
-      - runs: echo "You can customize this workflow to suit your needs."
+      - run: echo "Hello, World!"
+      - run: echo "This is a GitHub Actions demo workflow."
+      - run: echo "You can customize this workflow to suit your needs."
   build2:
     runs-on: ubuntu-latest
     steps:
-      - runs: echo "This is another job in the same workflow."
-      - runs: echo "You can have multiple jobs running in parallel or sequentially."
+      - run: echo "This is another job in the same workflow."
+      - run: echo "You can have multiple jobs running in parallel or sequentially."
   build3:
     needs: [build, build2 ]
     runs-on: ubuntu-latest
     steps:
-      - runs: echo "This is yet another job in the same workflow. on build 3 job"
-      - runs: echo "GitHub Actions allows you to automate your software development workflows."
+      - run: echo "This is yet another job in the same workflow. on build 3 job"
+      - run: echo "GitHub Actions allows you to automate your software development workflows."
