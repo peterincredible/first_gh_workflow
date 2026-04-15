@@ -11,6 +11,7 @@ jobs:
       - run: echo "Hello, World!"
       - run: echo "This is a GitHub Actions demo workflow."
       - run: echo "You can customize this workflow to suit your needs."
+      - run: echo "{{ github}} event triggered this workflow."
   build2:
     runs-on: ubuntu-latest
     steps:
