@@ -18,7 +18,7 @@ jobs:
     steps:
       - run: echo "This is another job in the same workflow."
       - run: echo "You can have multiple jobs running in parallel or sequentially."
-      - run: echo "${{env.Name}} that is the environment name"
+      - run: echo "${{secrets.Name}} that is the environment name"
   build3:
     needs: [build, build2 ]
     runs-on: ubuntu-latest
