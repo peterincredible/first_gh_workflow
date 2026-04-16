@@ -11,12 +11,14 @@ jobs:
       - run: echo "Hello, World!"
       - run: echo "This is a GitHub Actions demo workflow."
       - run: echo "You can customize this workflow to suit your needs."
-      - run: echo " ${{ github}} event triggered this workflow."
+      - run: echo " ${{ github}}"
   build2:
+    environment: Testing
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is another job in the same workflow."
       - run: echo "You can have multiple jobs running in parallel or sequentially."
+      - run: echo "${{env.Name}} that is the environment name"
   build3:
     needs: [build, build2 ]
     runs-on: ubuntu-latest
