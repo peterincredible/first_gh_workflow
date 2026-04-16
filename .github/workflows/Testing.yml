@@ -20,7 +20,7 @@ jobs:
       - run: echo "You can have multiple jobs running in parallel or sequentially."
       - run: echo "${{vars.Name}} that is the environment name"
       - run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
-      - run: echo " selected color is ${{$SELECTED_COLOR}}"
+      - run: echo " selected color is $SELECTED_COLOR"
   build3:
     needs: [build, build2 ]
     runs-on: ubuntu-latest
