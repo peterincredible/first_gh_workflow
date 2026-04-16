@@ -16,12 +16,15 @@ jobs:
     environment: Testing
     runs-on: ubuntu-latest
     steps:
-      id: color-selector
+      - name: set Color Selector
+        id: color-selector
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+      - name: Display Selected Color
+        run: echo "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
+        
       - run: echo "This is another job in the same workflow."
       - run: echo "You can have multiple jobs running in parallel or sequentially."
       - run: echo "${{vars.Name}} that is the environment name"
-      - run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
-      - run: echo " selected color is ${{steps.color-selector.outputs.SELECTED_COLOR}}"
   build3:
     needs: [build, build2 ]
     runs-on: ubuntu-latest
