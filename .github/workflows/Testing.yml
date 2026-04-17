@@ -38,5 +38,5 @@ jobs:
         name: [Alice, Bob, Charlie]
         age: [25, 30, 35]
     steps:
-      - run: echo "Hello, ${{ matrix.name }}! This is a matrix job."
+      - run: echo "Hello, ${{ matrix.name }}!  i am ${{ matrix.age }} years old. This is a matrix job."
       - run: echo "Matrix jobs allow you to run the same job with different configurations."
