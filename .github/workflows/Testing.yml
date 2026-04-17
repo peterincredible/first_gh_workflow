@@ -31,3 +31,10 @@ jobs:
     steps:
       - run: echo "This is yet another job in the same workflow. on build 3 job"
       - run: echo "GitHub Actions allows you to automate your software development workflows."
+  build4:
+    matrix:
+      name: [Alice, Bob, Charlie]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, ${{ matrix.name }}! This is a matrix job."
+      - run: echo "Matrix jobs allow you to run the same job with different configurations."
