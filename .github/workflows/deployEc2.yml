@@ -11,3 +11,5 @@ jobs:
     steps:
       - name: testing using secrets
         run: echo "This is ec2 instance security group key ${{ secrets.SECURITYGROUPKEY }}"
+      - name: testing using vars
+        run: echo "This is ec2 instance key pair ${{ vars.name }}"
