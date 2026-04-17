@@ -32,6 +32,7 @@ jobs:
       - run: echo "This is yet another job in the same workflow. on build 3 job"
       - run: echo "GitHub Actions allows you to automate your software development workflows."
   build4:
+    strategy:
     matrix:
       name: [Alice, Bob, Charlie]
     runs-on: ubuntu-latest
