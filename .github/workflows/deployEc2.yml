@@ -21,9 +21,9 @@ jobs:
       - name: Connect to EC2 Instance
         run: echo "Connecting to EC2 instance using SSH..."
       - name: Enter Ec2 Instance
-        use: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1
         with:
-          host: 98.82.35.9
+          host: ${{ vars.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.SECURITYGROUPKEY }}
           script: |
