@@ -1,0 +1,13 @@
+name: GitHub Actions Deploy to EC2 Instance
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: Configure Ec2 Instance Deploy
+    steps:
+      - name: testing using secrets
+        run: echo "This is ec2 instance security group key ${{ secrets.SECURITYGROUPKEY }}"
