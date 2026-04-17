@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: Configure Ec2 Instance Deploy
+    environment: Ec2 Instance Deploy
     steps:
       - name: testing using secrets
         run: echo "This is ec2 instance security group key ${{ secrets.SECURITYGROUPKEY }}"
