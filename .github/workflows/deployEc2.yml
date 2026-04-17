@@ -26,6 +26,7 @@ jobs:
           host: ${{ vars.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.SECURITYGROUPKEY }}
+          port: 22
           script: |
             echo  "Successfully connected to EC2 instance!" >> hello.txt
           
