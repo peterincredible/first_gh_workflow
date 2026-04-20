@@ -18,7 +18,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-       - uses: actions/checkout@v2
+      #  - uses: actions/checkout@v2
        - name: Download a single artifact
          uses: actions/download-artifact@v5
          with:
@@ -33,7 +33,8 @@ jobs:
           aws_key_id: ${{ secrets.ACCESS_KEY}}
           aws_secret_access_key: ${{ secrets.SECRET_ACCESS_KEY}}
           aws_bucket: ${{ secrets.BUCKET_NAME }}
-          source_dir: 'display.html'
+          source_dir: './display.html'
+          destination_dir: ''
 
        - run: echo "This is the end of the workflow"
 
