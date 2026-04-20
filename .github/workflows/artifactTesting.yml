@@ -1,0 +1,30 @@
+name: Playing with workflows
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: make dist directory
+        run: mkdir dist
+      - name: create a file in dist directory
+        run: echo "<h1>Hello, World!</h1>" >> dist/display.html
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-display
+          path: |
+            dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+       - name: Download a single artifact
+         uses: actions/download-artifact@v5
+         with:
+           name: dist-display
+       - name: Print Data in dist directory
+         run: cat dist/display.html
+       - run: echo "This is the end of the workflow"
+      
+              
