@@ -26,6 +26,8 @@ jobs:
        - name: Print Data in dist directory
         #  run: ls -lah
          run: cat display.html
+       - run: mkdir dist
+       - run: mv display.html dist/display.html
        - uses: shallwefootball/s3-upload-action@master
          name: Upload S3
          id: S3
@@ -33,7 +35,7 @@ jobs:
           aws_key_id: ${{ secrets.ACCESS_KEY}}
           aws_secret_access_key: ${{ secrets.SECRET_ACCESS_KEY}}
           aws_bucket: ${{ secrets.BUCKET_NAME }}
-          source_dir: './display.html'
+          source_dir: 'dist'
           destination_dir: ''
 
        - run: echo "This is the end of the workflow"
