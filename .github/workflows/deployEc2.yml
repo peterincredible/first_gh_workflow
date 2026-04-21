@@ -1,32 +1,32 @@
-name: GitHub Actions Deploy to EC2 Instance
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    environment: Ec2 Instance Deploy
-    steps:
-      - name: testing using secrets
-        run: echo "This is ec2 instance security group key ${{ secrets.SECURITYGROUPKEY }}"
-      - name: testing using vars
-        run: echo "This is ec2 instance key pair ${{ vars.name }}"
-  enterEc2:
-    needs: deploy
-    environment: Ec2 Instance Deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Connect to EC2 Instance
-        run: echo "Connecting to EC2 instance using SSH..."
-      - name: Enter Ec2 Instance
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ vars.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.SECURITYGROUPKEY }}
-          port: 22
-          script: |
-            echo  "Successfully connected to EC2 instance!" >> hello.txt
+# name: GitHub Actions Deploy to EC2 Instance
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - master
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     environment: Ec2 Instance Deploy
+#     steps:
+#       - name: testing using secrets
+#         run: echo "This is ec2 instance security group key ${{ secrets.SECURITYGROUPKEY }}"
+#       - name: testing using vars
+#         run: echo "This is ec2 instance key pair ${{ vars.name }}"
+#   enterEc2:
+#     needs: deploy
+#     environment: Ec2 Instance Deploy
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Connect to EC2 Instance
+#         run: echo "Connecting to EC2 instance using SSH..."
+#       - name: Enter Ec2 Instance
+#         uses: appleboy/ssh-action@v1
+#         with:
+#           host: ${{ vars.EC2_HOST }}
+#           username: ubuntu
+#           key: ${{ secrets.SECURITYGROUPKEY }}
+#           port: 22
+#           script: |
+#             echo  "Successfully connected to EC2 instance!" >> hello.txt
           

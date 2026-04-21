@@ -1,48 +1,48 @@
-name: Playing with workflow artifacts
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: make dist directory
-        run: mkdir dist
-      - name: create a file in dist directory
-        run: echo "<h1>Hello, World!</h1>" >> dist/display.html
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist-display
-          path: |
-            dist
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      #  - uses: actions/checkout@v2
-       - name: Download a single artifact
-         uses: actions/download-artifact@v5
-         with:
-           name: dist-display
-       - name: Print Data in dist directory
-        #  run: ls -lah
-         run: cat display.html
-       - run: mkdir dist
-       - run: mv display.html dist/display.html
-       - uses: shallwefootball/s3-upload-action@master
-         name: Upload S3
-         id: S3
-         with:
-          aws_key_id: ${{ secrets.ACCESS_KEY}}
-          aws_secret_access_key: ${{ secrets.SECRET_ACCESS_KEY}}
-          aws_bucket: ${{ secrets.BUCKET_NAME }}
-          source_dir: 'dist'
-          destination_dir: ''
+# name: Playing with workflow artifacts
+# on: [push]
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: make dist directory
+#         run: mkdir dist
+#       - name: create a file in dist directory
+#         run: echo "<h1>Hello, World!</h1>" >> dist/display.html
+#       - name: Archive production artifacts
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: dist-display
+#           path: |
+#             dist
+#   deploy:
+#     needs: build
+#     runs-on: ubuntu-latest
+#     steps:
+#       #  - uses: actions/checkout@v2
+#        - name: Download a single artifact
+#          uses: actions/download-artifact@v5
+#          with:
+#            name: dist-display
+#        - name: Print Data in dist directory
+#         #  run: ls -lah
+#          run: cat display.html
+#        - run: mkdir dist
+#        - run: mv display.html dist/display.html
+#        - uses: shallwefootball/s3-upload-action@master
+#          name: Upload S3
+#          id: S3
+#          with:
+#           aws_key_id: ${{ secrets.ACCESS_KEY}}
+#           aws_secret_access_key: ${{ secrets.SECRET_ACCESS_KEY}}
+#           aws_bucket: ${{ secrets.BUCKET_NAME }}
+#           source_dir: 'dist'
+#           destination_dir: ''
 
-       - run: echo "This is the end of the workflow"
+#        - run: echo "This is the end of the workflow"
 
-      #  us-east-1
-      # ${{ secrets.BUCKET_NAME }}
-      # SECRET_ACCESS_KEY
-      # ACCESS_KEY
+#       #  us-east-1
+#       # ${{ secrets.BUCKET_NAME }}
+#       # SECRET_ACCESS_KEY
+#       # ACCESS_KEY
       
               

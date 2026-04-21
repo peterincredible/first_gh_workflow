@@ -1,42 +1,42 @@
-name: GitHub Actions Demo
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hello, World!"
-      - run: echo "This is a GitHub Actions demo workflow."
-      - run: echo "You can customize this workflow to suit your needs."
-      - run: echo " ${{ github}}"
-  build2:
-    environment: Testing
-    runs-on: ubuntu-latest
-    steps:
-      - name: set Color Selector
-        id: color-selector
-        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
-      - name: Display Selected Color
-        run: echo "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
+# name: GitHub Actions Demo
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - master
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "Hello, World!"
+#       - run: echo "This is a GitHub Actions demo workflow."
+#       - run: echo "You can customize this workflow to suit your needs."
+#       - run: echo " ${{ github}}"
+#   build2:
+#     environment: Testing
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: set Color Selector
+#         id: color-selector
+#         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+#       - name: Display Selected Color
+#         run: echo "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
         
-      - run: echo "This is another job in the same workflow."
-      - run: echo "You can have multiple jobs running in parallel or sequentially."
-      - run: echo "${{vars.Name}} that is the environment name"
-  build3:
-    needs: [build, build2 ]
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "This is yet another job in the same workflow. on build 3 job"
-      - run: echo "GitHub Actions allows you to automate your software development workflows."
-  build4:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        name: [Alice, Bob, Charlie]
-        age: [25, 30, 35]
-    steps:
-      - run: echo "Hello, ${{ matrix.name }}!  i am ${{ matrix.age }} years old. This is a matrix job."
-      - run: echo "Matrix jobs allow you to run the same job with different configurations."
+#       - run: echo "This is another job in the same workflow."
+#       - run: echo "You can have multiple jobs running in parallel or sequentially."
+#       - run: echo "${{vars.Name}} that is the environment name"
+#   build3:
+#     needs: [build, build2 ]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "This is yet another job in the same workflow. on build 3 job"
+#       - run: echo "GitHub Actions allows you to automate your software development workflows."
+#   build4:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         name: [Alice, Bob, Charlie]
+#         age: [25, 30, 35]
+#     steps:
+#       - run: echo "Hello, ${{ matrix.name }}!  i am ${{ matrix.age }} years old. This is a matrix job."
+#       - run: echo "Matrix jobs allow you to run the same job with different configurations."
