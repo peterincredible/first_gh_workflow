@@ -9,6 +9,9 @@ jobs:
     with:
       name: shabba sebastian
   another_job:
+    needs: call_workflow
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello, World! this is the calling workflow"
+      - run: echo "this is output from the callable workflow:"
+      - run: echo "${{ needs.call_workflow.outputs.firstword }}"

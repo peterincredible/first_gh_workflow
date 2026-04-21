@@ -7,6 +7,10 @@ on:
         required: true
         type: string
         default: 'World peter'
+    outputs:
+      firstword:
+        description: "The first output string"
+        value: "Hello,This is the output from the callable workflow. my name is ikechukwu"
 jobs:
   build:
     runs-on: ubuntu-latest
