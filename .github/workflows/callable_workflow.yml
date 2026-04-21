@@ -1,11 +1,16 @@
 name: This is a callable workflow
 on:
   workflow_call:
+    inputs:
+      name:
+        description: 'Name of the person to greet'
+        required: true
+        default: 'World peter'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, World! this is the callable workflow"
+      - run: echo "Hello, ${inputs.name}! this is the callable workflow"
     
       
     

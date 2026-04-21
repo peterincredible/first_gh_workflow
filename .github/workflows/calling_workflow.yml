@@ -6,6 +6,8 @@ on:
 jobs:
   call_workflow:
     uses: ./.github/workflows/callable_workflow.yml
+    with:
+      name: shabba sebastian
   another_job:
     runs-on: ubuntu-latest
     steps:
