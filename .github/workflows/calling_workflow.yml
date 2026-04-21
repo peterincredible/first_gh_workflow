@@ -5,6 +5,8 @@ on:
       - master
 jobs:
   call_workflow:
-    uses: ./.github/workflows/callable_workflow.yml 
+    uses: ./.github/workflows/callable_workflow.yml
+  another_job:
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Hello, World! this is the calling workflow"
