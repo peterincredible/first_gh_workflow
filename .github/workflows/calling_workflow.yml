@@ -23,3 +23,7 @@ jobs:
         uses: ./.github/actions/first_composite_action
         with:
           who-to-greet: "Ikechukwu"
+      - name: Display My own Javascript Action
+        uses: ./.github/actions/first_javascript_action
+        with:
+          who-to-greet: "Uzorchukwu"
