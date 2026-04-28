@@ -19,6 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Display My own Composite Action
-        uses: ./.github/actions/first_action.yml
+        uses: ./.github/actions/first-composite-action
         with:
           who-to-greet: "Ikechukwu"
