@@ -15,3 +15,10 @@ jobs:
       - run: echo "Hello, World! this is the calling workflow"
       - run: echo "this is output from the callable workflow:"
       - run: echo "${{ needs.call_workflow.outputs.firstword }}"
+  My_third_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display My own Composite Action
+        uses: ./.github/actions/first_action.yml
+        with:
+          who-to-greet: "Ikechukwu"
