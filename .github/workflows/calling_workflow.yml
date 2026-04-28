@@ -20,6 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Display My own Composite Action
-        uses: ./.github/actions/first-composite-action
+        uses: ./.github/actions/first_composite_action
         with:
           who-to-greet: "Ikechukwu"
